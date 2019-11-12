@@ -1,4 +1,5 @@
 <template>
+<center>
   <div class="about">
      <div class="container">
     <div class="row justify-content-center">
@@ -52,6 +53,7 @@
     </div>
   </div>
   </div>
+  </center>
 </template>
 <script>
 import firebase from 'firebase';
