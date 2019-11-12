@@ -10,6 +10,8 @@
   "dependencies": {
     "buefy": "^0.8.6",
     "core-js": "^3.3.2",
+    "eslint-loader": "^3.0.2",
+    "eslint-plugin-disable": "^1.0.5",
     "firebase": "^7.3.0",
     "vue": "^2.6.10",
     "vue-router": "^3.1.3",
