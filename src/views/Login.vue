@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <router-link to="/logout">Home</router-link> |
+    <router-link to="/">Home</router-link> |
       <router-link to="/login">Login</router-link>
      <div class="grid-container">
     <div class="row justify-content-center">
@@ -45,7 +45,7 @@
               <br>
               <div class="form-group row mb-0">
                 <div class="col-md-8 offset-md-4">
-                <b-button  @click="success" type="submit" class="button is-medium is-success">Login
+                <b-button  @click="success" type="submit" class="is-primary">Login
                 </b-button>
                 </div>
               </div>
@@ -76,7 +76,7 @@ export default {
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
         .then(() => {
-          this.$router.replace({ name: 'home' });
+          this.$router.replace({ name: 'logout' });
         })
         .catch((err) => {
           this.error = err.message;
