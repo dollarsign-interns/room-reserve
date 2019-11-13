@@ -1,96 +1,41 @@
 <template>
-  <div class="home">
-    <HelloWorld/>
-        <form class='form-group' @submit.prevent='insert'>
-            <input type='text' v-model='name' placeholder='ชื่อ'>
-            <input type="radio" id="one" value="ติดจอง" v-model="picked">
-                <label for="one">ติดจอง</label>
-            <input type="radio" id="two" value="ว่าง" v-model="picked">
-                <label for="two">ว่าง</label>
-            <button type='submit' class="is-primary">Add</button>
-        </form>
-
-        <div class=" column" :key="key" v-for="(contact, key) in contact">
-            <div v-if="updateKey === key">
-             <input type="text" v-model="updateName" placeholder="Name">
-             <input type="radio" id="one" value="ติดจอง" v-model="updatePicked">
-                <label for="one">ติดจอง</label>
-              <input type="radio" id="two" value="ว่าง" v-model="updatePicked">
-                <label for="two">ว่าง</label>
-             <button @click="updateContact(updateName, updatePicked)">Save</button>
-            </div>
-            <div v-else>
-                {{contact.name}} : {{contact.picked}}
-                <button @click="setUpdateContact(key, contact)">Update</button>
-            </div>
-          </div>
+  <div class="section">
+    <div class="container">
+      <h1 class="title">Room Reserve</h1>
+      <div>
+        <room-group v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+      </div>
+      <button @click="logout">Logout</button>
+    </div>
   </div>
 </template>
-
 <script>
-// @ is an alias to /src
-import * as firebase from 'firebase/app';
-import HelloWorld from '@/components/HelloWorld.vue';
-import 'firebase/database';
-
-const config = {
-  apiKey: 'AIzaSyAWvINUgJeX1KpqPCpBCXeYW0vfzMGsfZA',
-  authDomain: 'room-reserve-17c64.firebaseapp.com',
-  databaseURL: 'https://room-reserve-17c64.firebaseio.com',
-  projectId: 'room-reserve-17c64',
-};
-
-firebase.initializeApp(config);
-
-
-const database = firebase.database();
-const contactsRef = database.ref('contact');
+import store from '@/store/store';
+import firebase from 'firebase/app';
+import RoomGroup from '@/components/RoomGroup.vue';
 
 export default {
-  name: 'home',
+  name: 'Home',
   components: {
-    HelloWorld,
+    RoomGroup,
   },
   data() {
     return {
-      contact: [],
-      name: '',
-      picked: '',
-      updatePicked: '',
-      updateName: '',
-      updateKey: '',
+      roomGroupList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'],
     };
   },
+
   methods: {
-    insert() {
-      contactsRef.push({ name: this.name, picked: this.picked });
-      this.name = '';
-      this.picked = '';
+    logout() {
+      firebase.auth().signOut();
     },
-    setUpdateContact(key, contact) {
-      this.updateKey = key;
-      this.updateName = contact.name;
-      this.updatePicked = contact.picked;
-    },
-    updateContact(name, picked) {
-      contactsRef.child(this.updateKey).update({
-        picked,
-        name,
-      });
-      this.updateKey = '';
-      this.updatePicked = '';
-      this.updateName = '';
-    },
-  },
-  created() {
-    contactsRef.on('value', (snapshot) => {
-      this.contact = snapshot.val();
-    });
   },
 };
 </script>
 <style scoped>
-* {box-sizing: border-box;}
+* {
+  box-sizing: border-box;
+}
 .wrapper {
   max-width: 200px;
   margin: 0 auto;
@@ -109,5 +54,4 @@ export default {
   width: 33.33%;
   padding: 4px;
 }
-
 </style>
