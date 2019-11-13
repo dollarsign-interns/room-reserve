@@ -2,20 +2,27 @@
   <div class="home">
     <HelloWorld/>
         <form class='form-group' @submit.prevent='insert'>
-            <input type='text' v-model='name' placeholder='NAME'>
-            <input type='text' v-model='tel' placeholder='TEL'>
+            <input type='text' v-model='name' placeholder='ชื่อ'>
+            <input type="radio" id="one" value="ติดจอง" v-model="picked">
+                <label for="one">ติดจอง</label>
+            <input type="radio" id="two" value="ว่าง" v-model="picked">
+                <label for="two">ว่าง</label>
             <button type='submit' class="is-primary">Add</button>
         </form>
 
-        <div class="wrapper column" :key="key" v-for="(contact, key) in contact">
-             <div v-if="updateKey === key">
-             <input type="text" v-model="updateName" placeholder="TEL">
-             <button @click="updateContact(updateTel, updateName)">Save</button>
-             </div>
-              <div v-else>
-                {{contact.name}}
+        <div class=" column" :key="key" v-for="(contact, key) in contact">
+            <div v-if="updateKey === key">
+             <input type="text" v-model="updateName" placeholder="Name">
+             <input type="radio" id="one" value="ติดจอง" v-model="updatePicked">
+                <label for="one">ติดจอง</label>
+              <input type="radio" id="two" value="ว่าง" v-model="updatePicked">
+                <label for="two">ว่าง</label>
+             <button @click="updateContact(updateName, updatePicked)">Save</button>
+            </div>
+            <div v-else>
+                {{contact.name}} : {{contact.picked}}
                 <button @click="setUpdateContact(key, contact)">Update</button>
-              </div>
+            </div>
           </div>
   </div>
 </template>
@@ -48,30 +55,30 @@ export default {
     return {
       contact: [],
       name: '',
-      tel: '',
-      updateTel: '',
+      picked: '',
+      updatePicked: '',
       updateName: '',
       updateKey: '',
     };
   },
   methods: {
     insert() {
-      contactsRef.push({ tel: this.tel, name: this.name });
+      contactsRef.push({ name: this.name, picked: this.picked });
       this.name = '';
-      this.tel = '';
+      this.picked = '';
     },
     setUpdateContact(key, contact) {
       this.updateKey = key;
-      this.updateTel = contact.tel;
       this.updateName = contact.name;
+      this.updatePicked = contact.picked;
     },
-    updateContact(tel, name) {
+    updateContact(name, picked) {
       contactsRef.child(this.updateKey).update({
-        tel,
+        picked,
         name,
       });
       this.updateKey = '';
-      this.updateTel = '';
+      this.updatePicked = '';
       this.updateName = '';
     },
   },
@@ -85,7 +92,7 @@ export default {
 <style scoped>
 * {box-sizing: border-box;}
 .wrapper {
-  max-width: 150px;
+  max-width: 200px;
   margin: 0 auto;
   float: left;
 }
