@@ -1,7 +1,25 @@
 <template>
-  <div id="nav">
-    <h1>Login</h1>
-    <button @click="submit">Login With Google</button>
+    <div  class="grid-container">
+      <section @click="submit" class="col-md-4">
+      <b-field label="Email">
+            <b-input type="email" 
+            placeholder="Email"
+            autofocus
+            v-model="form.email">
+            </b-input>
+        </b-field>
+        <b-field label="Password">
+            <b-input type="password"
+             placeholder="Password"
+              id="password"
+              name="password"
+             required
+             v-model="form.password"
+                password-reveal>
+            </b-input>
+        </b-field>
+        <b-button class="is-success" type="sumbit">Login</b-button>
+        </section>
   </div>
 </template>
 <script>
@@ -10,18 +28,21 @@ import ui from '../store/firebase-ui';
 import store from '../store/store';
 
 export default {
+  data(){
+    return{
+      form:{
+        email:'',
+        password:'',
+      }
+    }
+  },
   methods: {
     submit() {
-      const router = this.$router;
-      firebase
+        firebase
         .auth()
-        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then(function(result) {
-          var token = result.credential.accessToken;
-          var user = result.user;
-          console.log({ token, user });
-          store.dispatch('loggedIn');
-          router.push('/home');
+        .signInWithEmailAndPassword(this.form.email, this.form.password)
+        .then(() => {
+          this.$router.replace({ name: 'Home' });
         })
         .catch(function(error) {
           var errorCode = error.code;
@@ -40,4 +61,5 @@ export default {
   padding: 60px;
   text-align: center;
 }
+
 </style>

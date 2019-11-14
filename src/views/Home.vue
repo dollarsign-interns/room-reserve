@@ -2,10 +2,10 @@
   <div class="section">
     <div class="container">
       <h1 class="title">Room Reserve</h1>
+      <button @click="logout">Logout</button>
       <div>
         <room-group v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
       </div>
-      <button @click="logout">Logout</button>
     </div>
   </div>
 </template>
