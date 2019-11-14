@@ -16,6 +16,8 @@ const updateRoom = firebaseAction(async ({ state, commit }, payload) => {
   await db.ref(`rooms/${id}`).update(rest);
 });
 
+
+
 const loggedIn = async ({ commit }) => {
   commit('LOGGED_IN');
   commit('LOADED');

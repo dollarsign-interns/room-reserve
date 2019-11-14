@@ -1,6 +1,7 @@
 <template>
-    <div  class="grid-container">
-      <section @click="submit" class="col-md-4">
+    <div  class="grid-container" >
+      <form action=""  >
+      <section @click="onSubmit" class="col-md-4" > 
       <b-field label="Email">
             <b-input type="email" 
             placeholder="Email"
@@ -20,12 +21,21 @@
         </b-field>
         <b-button class="is-success" type="sumbit">Login</b-button>
         </section>
+        </form>
+        <section>
+          <button 
+                class="button is-primary is-medium"
+                @click="submit">
+            ดูห้องว่าง
+        </button>
+        </section>
   </div>
 </template>
 <script>
 import firebase from 'firebase/app';
 import ui from '../store/firebase-ui';
 import store from '../store/store';
+import Room from '@/components/Room';
 
 export default {
   data(){
@@ -33,25 +43,24 @@ export default {
       form:{
         email:'',
         password:'',
-      }
+      },
+      error: null,
     }
   },
   methods: {
-    submit() {
+    onSubmit() {
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
         .then(() => {
           this.$router.replace({ name: 'Home' });
         })
-        .catch(function(error) {
-          var errorCode = error.code;
-          var errorMessage = error.message;
-          var email = error.email;
-          var credential = error.credential;
-          console.log({ error });
-          store.dispatch('loggedOut');
+          .catch((err) => {
+          this.error = err.message;
         });
+    },
+    submit(){
+        this.$router.replace({name:'seeroom'});
     },
   },
 };

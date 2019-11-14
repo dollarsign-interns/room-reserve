@@ -1,12 +1,12 @@
 <template>
   <div class="section">
     <div class="container">
-      <h1 class="title">ห้อง
-        <b-button class="is-danger" @click="logout">Logout</b-button>
+      <h1 class="title">ห้องว่าง
+        <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
       </h1>
       
       <div>
-        <room-group v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+        <groupUser v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
       </div>
     </div>
   </div>
@@ -14,12 +14,12 @@
 <script>
 import store from '@/store/store';
 import firebase from 'firebase/app';
-import RoomGroup from '@/components/RoomGroup.vue';
+import groupUser from '@/components/groupUser.vue';
 
 export default {
-  name: 'Home',
+  name: 'seeroom',
   components: {
-    RoomGroup,
+    groupUser,
   },
   data() {
     return {
@@ -29,7 +29,7 @@ export default {
 
   methods: {
     logout() {
-      firebase.auth().signOut();
+        this.$router.replace({name:'login'});
     },
   },
 };
