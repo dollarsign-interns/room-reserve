@@ -10,6 +10,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.25",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/vue-fontawesome": "^0.1.8",
+    "bootstrap": "^4.3.1",
+    "bootstrap-vue": "^2.1.0",
     "buefy": "^0.8.6",
     "core-js": "^3.3.2",
     "firebase": "^7.3.0",
