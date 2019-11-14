@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div >
     <room v-for="room in roomList" :name="`${groupName}${room}`" v-bind:key="`${groupName}${room}`" />
   </div>
 </template>

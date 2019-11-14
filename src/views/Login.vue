@@ -24,12 +24,23 @@
         </section>
         </form>
         <section>
+          <br>
           <button 
                 class="button is-primary is-medium"
                 @click="submit">
-            ดูห้องว่าง
+            เช็คห้องว่าง
         </button>
         </section>
+        <br>
+        <button class="button is-primary is-medium"
+            @click="isImageModalActive = true">
+            เช็คแผนผังห้อง
+        </button>
+        <b-modal :active.sync="isImageModalActive">
+            <p class="image is-2by2">
+                <img src="../assets/map.png">
+            </p>
+        </b-modal>
   </div>
 </template>
 <script>
@@ -41,6 +52,7 @@ import Room from '@/components/Room';
 export default {
   data(){
     return{
+      isImageModalActive: false,
       form:{
         email:'',
         password:'',

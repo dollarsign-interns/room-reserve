@@ -1,11 +1,11 @@
 <template>
-  <div class="section">
-    <div class="container">
+  <div class="">
+    <div class="grid-container">
       <h1 class="title">เช็คห้องว่าง
         <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
       </h1>
       
-      <div>
+      <div class="">
         <groupUser v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
       </div>
     </div>
@@ -56,4 +56,9 @@ export default {
   width: 33.33%;
   padding: 4px;
 }
+.grid-container {
+  padding: 60px;
+  text-align: center;
+}
+
 </style>
