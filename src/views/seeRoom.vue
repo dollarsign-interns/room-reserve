@@ -1,14 +1,15 @@
 <template>
   <div class="section">
+    <center>
     <div class="container">
       <h1 class="title">เช็คห้องว่าง
         <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
-      </h1>
-      
-      <div class="">
-        <groupUser v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+      </h1><hr class="hr1">
+      <div class="position">
+        <groupUser  class="wrapper" v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
       </div>
     </div>
+    </center>
   </div>
 </template>
 <script>
@@ -35,30 +36,18 @@ export default {
 };
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
 .wrapper {
-  max-width: 200px;
-  margin: 0 auto;
-  float: left;
+      margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: auto;
 }
 
-.wrapper > div {
-  border: 2px solid rgb(70, 68, 68);
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 1em;
-  color: #000000;
+.position{
+   position: absolute;
+  left: 150px;
 }
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 4px;
+.hr1{
+    border-top: 2px solid black;
 }
-.grid-container {
-  padding: 60px;
-  text-align: center;
-}
-
 </style>

@@ -1,10 +1,14 @@
 <template>
   <b-tooltip :label="`owner: ${room && room.owner}`" position="is-top" :active="!!room">
-    <b-button v-if="room" 
+    <b-button
+                class="button-class"  
+                v-if="room" 
                 type="is-primary"  >
                 {{ name }}
       </b-button>
-      <b-button v-else
+      <b-button 
+                class="button-class" 
+                v-else
                 type="is-primary"  
                 outlined  >
                 {{ name }} 
@@ -29,3 +33,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+.button-class{
+width:50px;
+height:40px;
+}
+</style>

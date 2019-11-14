@@ -20,7 +20,7 @@
                 password-reveal>
             </b-input>
         </b-field>
-        <b-button class="is-success" type="sumbit">Login</b-button>
+        <b-button class="is-success" type="onSumbit">Login</b-button>
         </section>
         </form>
         <section>
