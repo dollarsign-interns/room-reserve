@@ -1,6 +1,14 @@
 <template>
   <b-tooltip :label="`owner: ${room && room.owner}`" position="is-top" :active="!!room">
-    <b-button type="is-primary" outlined :disabled="room">{{ name }}</b-button>
+    <b-button v-if="room" 
+                type="is-primary"  >
+                {{ name }}
+      </b-button>
+      <b-button v-else
+                type="is-primary"  
+                outlined  >
+                {{ name }} 
+      </b-button>
   </b-tooltip>
 </template>
 <script>
