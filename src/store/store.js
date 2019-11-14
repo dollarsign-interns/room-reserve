@@ -16,6 +16,10 @@ const updateRoom = firebaseAction(async ({ state, commit }, payload) => {
   await db.ref(`rooms/${id}`).update(rest);
 });
 
+const removeRoom = firebaseAction(async ({ state, commit }, payload) => {
+  const { id } = payload;
+  await db.ref(`rooms/${id}`).remove();
+});
 
 
 const loggedIn = async ({ commit }) => {
@@ -52,6 +56,7 @@ const store = new Vuex.Store({
   actions: {
     bindRooms,
     updateRoom,
+    removeRoom,
     loggedIn,
     loggedOut,
   },
