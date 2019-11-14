@@ -5,8 +5,9 @@
       <h1 class="title">ระบบจองห้อง
         <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
       </h1><hr class="hr1">
-      <div class="position">
-        <room-group class="wrapper" v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+      <div >
+        <room-group class="wrapper" v-for="roomGroup in roomGroupListB" :group-name="roomGroup" v-bind:key="roomGroup" />
+        <room-group class="wrappers" v-for="roomGroup in roomGroupListA" :group-name="roomGroup" v-bind:key="roomGroup" />
         
       </div>
       
@@ -26,7 +27,8 @@ export default {
   },
   data() {
     return {
-      roomGroupList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'],
+      roomGroupListA: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'],
+      roomGroupListB: ['M', 'N', 'O', 'P', 'Q', 'R']
 
     };
   },
@@ -46,7 +48,12 @@ export default {
     float: left;
     width: auto;
 }
-
+.wrappers{
+     margin: 5px;
+    border: 1px solid #ccc;
+    float: right ;
+    width: auto;
+}
 .position{
    position: absolute;
   left: 150px;
