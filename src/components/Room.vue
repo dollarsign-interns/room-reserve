@@ -1,7 +1,10 @@
 <template>
-  <b-tooltip :label="`owner: ${room && room.owner}`" position="is-top" :active="!!room">
-    <b-button type="is-primary" outlined @click="selectRoom" :disabled="room">{{ name }}</b-button>
-  </b-tooltip>
+    <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
+      <b-button type="is-primary" outlined @click="selectRoom" >{{ name }} 
+
+      </b-button>
+       <b-button type="is-primary" outlined @click="cancelRoom" >{{ name }} </b-button>
+    </b-tooltip>  
 </template>
 <script>
 import store from '@/store/store';
@@ -22,14 +25,26 @@ export default {
   methods: {
     selectRoom() {
       this.$buefy.dialog.prompt({
-        message: `insert owner name...`,
+        message: `เพิ่มชื่อเจ้าของห้อง`,
         inputAttrs: {
-          placeholder: 'name',
+          placeholder: 'พิมพ์ชื่อ',
           maxlength: 100,
         },
+        confirmText: 'ตกลง',
+        cancelText: 'ยกเลิก',
         trapFocus: true,
         onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }),
       });
+    },
+    cancelRoom() {
+      this.$buefy.dialog.confirm({
+        title: 'ลบข้อมูลการจองห้อง',
+        message: 'คุณต้องการ <b>ลบ</b> ข้อมูลการจองห้องหรือไม่ ?',
+        confirmText: 'ลบ',
+        cancelText: 'ยกเลิก',
+        type: 'is-danger',
+        onConfirm: () => store.dispatch('removeRoom', {id:this.name})
+      })
     },
   },
 };
