@@ -1,12 +1,17 @@
 <template>
   <div class="section">
     <center>
-    <div class="container">
+    <div class="overflow">
       <h1 class="title">เช็คห้องว่าง
         <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
       </h1><hr class="hr1">
-      <div class="position">
-        <groupUser  class="wrapper" v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+      <div class="overflow">
+        <groupUser  class="wrapper1" v-for="roomGroup in roomGroupListE" :group-name="roomGroup" v-bind:key="roomGroup" />
+        <groupUser  class="wrapper2" v-for="roomGroup in roomGroupListA" :group-name="roomGroup" v-bind:key="roomGroup" />
+        <groupUser  class="wrapper2" v-for="roomGroup in roomGroupListC" :group-name="roomGroup" v-bind:key="roomGroup" />
+        <groupUser  class="wrapper2" v-for="roomGroup in roomGroupListD" :group-name="roomGroup" v-bind:key="roomGroup" />
+      </div>
+      <div>
       </div>
     </div>
     </center>
@@ -24,7 +29,12 @@ export default {
   },
   data() {
     return {
-      roomGroupList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'],
+      roomGroupListA:['L','H','D','K'],
+      roomGroupListC:['G','C','J','F'],
+      roomGroupListD:['B','I','E','A'],
+      roomGroupListE:['R','O','Q','N','P','M'],
+      
+      
     };
   },
 
@@ -36,17 +46,27 @@ export default {
 };
 </script>
 <style scoped>
-.wrapper {
+.wrapper1{
       margin: 5px;
-    border: 1px solid #ccc;
     float: left;
-    width: auto;
+    width: 600px;
+    height: 50px;
+    margin-left: auto;
+    display: flex;
+    flex: -100%;
+}
+.wrapper2{
+     margin: 5px;
+    float: left ;
+    width: 500px;
+    height: 50px;
+}
+.overflow{
+  width: 1700px;
+  height: auto;
 }
 
-.position{
-   position: absolute;
-  left: 150px;
-}
+
 .hr1{
     border-top: 2px solid black;
 }
