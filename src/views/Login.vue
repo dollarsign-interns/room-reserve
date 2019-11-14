@@ -5,13 +5,14 @@
       <b-field label="Email">
             <b-input type="email" 
             placeholder="Email"
+            required
             autofocus
             v-model="form.email">
             </b-input>
-        </b-field>
-        <b-field label="Password">
+      </b-field>
+      <b-field label="รหัสผ่าน">
             <b-input type="password"
-             placeholder="Password"
+             placeholder="รหัสผ่าน"
               id="password"
               name="password"
              required

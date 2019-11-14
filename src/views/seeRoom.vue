@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <div class="container">
-      <h1 class="title">ห้องว่าง
+      <h1 class="title">เช็คห้องว่าง
         <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
       </h1>
       
