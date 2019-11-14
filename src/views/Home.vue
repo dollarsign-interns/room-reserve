@@ -1,12 +1,17 @@
 <template>
   <div class="section">
+    <center>
     <div class="container">
-      <h1 class="title">Room Reserve</h1>
-      <div>
-        <room-group v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+      <h1 class="title">ระบบจองห้อง
+        <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
+      </h1><hr class="hr1">
+      <div class="position">
+        <room-group class="wrapper" v-for="roomGroup in roomGroupList" :group-name="roomGroup" v-bind:key="roomGroup" />
+        
       </div>
-      <button @click="logout">Logout</button>
+      
     </div>
+    </center>
   </div>
 </template>
 <script>
@@ -22,6 +27,7 @@ export default {
   data() {
     return {
       roomGroupList: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'],
+
     };
   },
 
@@ -33,25 +39,20 @@ export default {
 };
 </script>
 <style scoped>
-* {
-  box-sizing: border-box;
-}
+
 .wrapper {
-  max-width: 200px;
-  margin: 0 auto;
-  float: left;
+      margin: 5px;
+    border: 1px solid #ccc;
+    float: left;
+    width: auto;
 }
 
-.wrapper > div {
-  border: 2px solid rgb(70, 68, 68);
-  border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 1em;
-  color: #000000;
+.position{
+   position: absolute;
+  left: 150px;
 }
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 4px;
+.hr1{
+  border-top: 2px solid black;
 }
+
 </style>

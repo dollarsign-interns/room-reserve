@@ -1,10 +1,19 @@
 <template>
-    <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
-      <b-button type="is-primary" outlined @click="selectRoom" >{{ name }} 
-
+  <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
+      <b-button class="sizebutton"
+                v-if="room" 
+                type="is-primary"  
+                @click="cancelRoom" >
+                {{ name }}
       </b-button>
-       <b-button type="is-primary" outlined @click="cancelRoom" >{{ name }} </b-button>
-    </b-tooltip>  
+      <b-button v-else
+                class="sizebutton"
+                type="is-primary"  
+                outlined 
+                @click="selectRoom" >
+                {{ name }} 
+      </b-button>
+  </b-tooltip>  
 </template>
 <script>
 import store from '@/store/store';
@@ -25,7 +34,7 @@ export default {
   methods: {
     selectRoom() {
       this.$buefy.dialog.prompt({
-        message: `เพิ่มชื่อเจ้าของห้อง`,
+        message: `เพิ่มชื่อผู้จอง`,
         inputAttrs: {
           placeholder: 'พิมพ์ชื่อ',
           maxlength: 100,
@@ -49,3 +58,11 @@ export default {
   },
 };
 </script>
+<style>
+
+.sizebutton {
+  width: 50px;
+  height: 40px;
+}
+
+</style>
