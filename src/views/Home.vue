@@ -60,7 +60,7 @@ div.ex1 {
   position: absolute;
   width: 100%;
   height: 400%;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .row {
@@ -72,19 +72,19 @@ div.ex1 {
   position: absolute;
   width: 130%;
   left: 107.6pc;
-  top: 60px;
+  top: 25px;
 }
 .wrapper2 {
   position: absolute;
   width: 130%;
   left: 81.5pc;
-  top: 60px
+  top: 25px
 }
 .wrapper3 {
   position: absolute;
   width: 130%;
   left: 55.3pc;
-  top: 60px
+  top: 25px
 }
 .wrapper4 {
   position: absolute;
