@@ -58,12 +58,12 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 
 .sizebutton {
-  width: 50px;
-  height: 150px;
-  margin-left: 2px
+  width: 40px;
+  height: 100px;
+  margin-left: 3px
 }
 
 </style>
