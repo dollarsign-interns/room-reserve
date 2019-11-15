@@ -67,30 +67,30 @@ div.ex1 {
 .wrapper1{
   position: absolute;
   width: 130%;
-  left: 107.6pc;
+  left: 105pc;
   top: 25px;
 }
 .wrapper2 {
   position: absolute;
   width: 130%;
-  left: 81.5pc;
+  left: 78.6pc;
   top: 25px
 }
 .wrapper3 {
   position: absolute;
   width: 130%;
-  left: 55.3pc;
+  left: 52.3pc;
   top: 25px
 }
 .wrapper4 {
   position: absolute;
   width: 130%;
-  left: 350pt;
+  left: 313pt;
 }
 .wrapper5 {
   width: 130%;
   position: absolute;
-  left: 50px;
+  left: 0px;
 }
 .space{
   margin-bottom: 10px;
