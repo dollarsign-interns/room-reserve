@@ -47,8 +47,8 @@ export default {
     },
     cancelRoom() {
       this.$buefy.dialog.confirm({
-        title: 'ลบข้อมูลการจองห้อง',
-        message: 'คุณต้องการ <b>ลบ</b> ข้อมูลการจองห้องหรือไม่ ?',
+        title: `ผู้จอง : ${this.room.owner}`,
+        message: `ต้องการ <b>ลบ</b> ข้อมูลการจองห้องหรือไม่?`,
         confirmText: 'ลบ',
         cancelText: 'ยกเลิก',
         type: 'is-danger',
