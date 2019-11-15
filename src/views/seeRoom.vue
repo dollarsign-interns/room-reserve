@@ -1,7 +1,7 @@
 <template>
   <div class="section">
     <center>
-    <div class="overflow">
+    <div class="">
       <h1 class="title">เช็คห้องว่าง
         <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
       </h1><hr class="hr1">
@@ -60,10 +60,13 @@ export default {
     float: left ;
     width: 500px;
     height: 50px;
+    
 }
 .overflow{
+  position: absolute;
   width: 1700px;
   height: auto;
+  overflow-x: scroll;
 }
 
 

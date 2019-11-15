@@ -1,5 +1,5 @@
 <template>
-    <div  class="grid-container" >
+    <div  class="grid-container" >    
       <form action=""  >
       <section @click="onSubmit" class="col-md-4" > 
       <b-field label="Email">
@@ -20,19 +20,24 @@
                 password-reveal>
             </b-input>
         </b-field>
-        <b-button class="is-success" type="onSumbit">Login</b-button>
+        <b-button   style="width:160px;
+                  height:45px;" class="is-success" type="onSumbit">Login</b-button>
         </section>
         </form>
         <section>
           <br>
           <button 
+                style="width:160px;
+                  height:45px;"  
                 class="button is-primary is-medium"
                 @click="submit">
             เช็คห้องว่าง
         </button>
         </section>
         <br>
-        <button class="button is-primary is-medium"
+        <button
+        style="height:45px;" 
+        class="button is-primary is-medium"
             @click="isImageModalActive = true">
             เช็คแผนผังห้อง
         </button>
