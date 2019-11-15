@@ -4,14 +4,16 @@
                 class="sizebutton" 
                 type="is-dark"  
                 @click="cancelRoom" >
-                 <b-icon style="color:gold" pack="fas" icon="check"></b-icon>
+                <div style="height:100px;">{{name}}</div>
+                <div style="margin-top:-40px"><b-icon style="color: gold;" pack="fas" icon="check"></b-icon></div>
+                
       </b-button>
       <b-button v-else
                 class="sizebutton"
                 type="is-dark"  
                 outlined 
                 @click="selectRoom" >
-                {{ name }} 
+                <div style="height:100px;">{{name}}</div> 
       </b-button>
   </b-tooltip>  
 </template>
