@@ -5,7 +5,7 @@
       <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
     </h1><hr class="hr1">
     <div class=" ex1 ">
-      <div class="all">
+      <div class="relative">
         <div class="wrapper1 ">
           <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>
@@ -54,6 +54,12 @@ export default {
 };
 </script>
 <style scoped>
+div.relative {
+  position: relative;
+  width: 350px;
+  height: 200px;
+
+} 
 
 div.ex1 {
   position: absolute;
@@ -66,7 +72,7 @@ div.ex1 {
 }
 .wrapper3{
   position: absolute;
-  width: 130%;
+  width: 100%;
   left: 1090pt;
   top: 100px;
 }

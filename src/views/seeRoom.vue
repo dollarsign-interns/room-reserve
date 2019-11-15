@@ -5,6 +5,7 @@
       <b-button type="is-success"  outlined  @click="logout">กลับไปที่หน้า Login</b-button>
     </h1><hr class="hr1">
       <div class="ex1">
+        <div class="relative">
         <div class="wrapper1 ">
           <groupUser class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>
@@ -20,6 +21,7 @@
         <div class="wrapper5">
           <groupUser class="space" v-for="roomGroup in roomGroupListFive" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>          
+      </div>
       </div>
     </div>
   </div>
@@ -52,6 +54,13 @@ export default {
 };
 </script>
 <style scoped>
+div.relative {
+  position: relative;
+  width: 350px;
+  height: 200px;
+
+} 
+
 div.ex1 {
   position: absolute;
   width: 97.5%;
@@ -66,7 +75,7 @@ div.ex1 {
 }
 .wrapper3{
   position: absolute;
-  width: 130%;
+  width: 100%;
   left: 1090pt;
   top: 100px;
 }

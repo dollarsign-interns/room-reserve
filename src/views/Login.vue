@@ -37,9 +37,23 @@
                 @click="submit">
             เช็คห้องว่าง
         </button> 
+       <br>
+       <br>
         </form>
-        <br>
-        </center>
+        <button 
+                style="width:160px;
+                  height:45px;"  
+                class="button is-primary is-medium"
+                @click="isImageModalActive = true">
+            เช็คแผนผังห้อง
+        </button> 
+        
+        <b-modal :active.sync="isImageModalActive">
+            <p class="image is-2by1">
+                <img src="../assets/mapping.png">
+            </p>
+            </b-modal>
+        </center> 
   </div>
 </template>
 <script>

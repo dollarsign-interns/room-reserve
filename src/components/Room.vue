@@ -1,14 +1,11 @@
 <template>
   <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-right" :active="!!room" type="is-dark">
-<b-button v-if="room"
+      <b-button v-if="room"
                 class="sizebutton" 
                 type="is-dark"  
                 @click="cancelRoom" >
-
                 <div style="height:100px;">{{name}}</div>
                 <div style="margin-top:-40px"><b-icon style="color: gold;" pack="fas" icon="check"></b-icon></div>
-                
-
       </b-button>
       <b-button v-else
                 class="sizebutton"
@@ -42,10 +39,10 @@ export default {
         inputAttrs: {
           placeholder: 'พิมพ์ชื่อ',
           maxlength: 1000,
-          
         },
         confirmText: 'ตกลง',
         cancelText: 'ยกเลิก',
+        type:'is-dark',
         trapFocus: true,
          onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }),
       });
