@@ -55,7 +55,7 @@ export default {
 div.ex1 {
   position: absolute;
   width: 97.5%;
-  height: 550%;
+  height: 2000%;
   overflow: auto;
 }
 
@@ -84,12 +84,12 @@ div.ex1 {
 }
 .wrapper5 {
   position: absolute;
-  width: 130%;
+  width: 350px;
   left: 270pt;
   top:40px
 }
 .wrapper4 {
-  width: 130%;
+  width: 400px;
   position: absolute;
   left: 0px;
   top:40px;

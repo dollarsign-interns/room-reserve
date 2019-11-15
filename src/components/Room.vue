@@ -1,5 +1,5 @@
 <template>
-  <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
+  <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-right" :active="!!room" type="is-dark">
 <b-button v-if="room"
                 class="sizebutton" 
                 type="is-dark"  
@@ -52,7 +52,7 @@ export default {
       this.$buefy.dialog.confirm({
         title: `ข้อมูลผู้จอง  `,
         message: `${this.room.owner}`,
-        confirmText: 'ลบข้อมูล',
+        confirmText: 'ต้องการลบหรือไม่ ?',
         cancelText: 'ปิด',
         type: 'is-danger',
         onConfirm: () => store.dispatch('removeRoom', {id:this.name})

@@ -4,8 +4,8 @@
     <h1 class="title">ระบบจองห้อง
       <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
     </h1><hr class="hr1">
-    <div>
-      <div class="ex1">
+    <div class=" ex1 ">
+      <div class="all">
         <div class="wrapper1 ">
           <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>
@@ -58,14 +58,11 @@ export default {
 div.ex1 {
   position: absolute;
   width: 97.5%;
-  height: 550%;
+  height: 2000%;
   overflow: auto;
 }
-
-.row {
-  content: "";
-  display: table;
-  clear: both;
+.all {
+  margin-left: 50px;
 }
 .wrapper3{
   position: absolute;
@@ -87,12 +84,12 @@ div.ex1 {
 }
 .wrapper5 {
   position: absolute;
-  width: 130%;
+  width: 350px;
   left: 270pt;
   top:40px
 }
 .wrapper4 {
-  width: 130%;
+  width:400px;
   position: absolute;
   left: 0px;
   top:40px;
@@ -105,10 +102,5 @@ div.ex1 {
 .hr1{
     border-top: 2px solid black;
 }
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  .column {
-    width: 100%;
-  }
-}
+
 </style>

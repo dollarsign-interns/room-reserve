@@ -1,17 +1,23 @@
+อ้น, [15.11.19 17:21]
 <template>
-    <div  class="grid-container" >    
-      <form action=""  >
-      <section @click="onSubmit" class="col-md-4" > 
-      <b-field label="Email">
-            <b-input type="email" 
+    <div  class="section" >    
+      <center>
+      <form  style="width:330px">
+      <section @click="onSubmit" class="" > 
+      <b-field 
+            label="Email">
+            <b-input 
+            type="email" 
             placeholder="Email"
             required
             autofocus
             v-model="form.email">
             </b-input>
-      </b-field>
-      <b-field label="รหัสผ่าน">
-            <b-input type="password"
+            </b-field>
+            <b-field 
+            label="รหัสผ่าน">
+            <b-input 
+            type="password"
              placeholder="รหัสผ่าน"
               id="password"
               name="password"
@@ -23,17 +29,17 @@
         <b-button   style="width:160px;
                   height:45px;" class="is-success" type="onSumbit">Login</b-button>
         </section>
-        </form>
-        <section>
-          <br>
-          <button 
+        <br>
+        <button 
                 style="width:160px;
                   height:45px;"  
                 class="button is-primary is-medium"
                 @click="submit">
             เช็คห้องว่าง
-        </button>
-        </section>
+        </button> 
+        </form>
+        <br>
+        </center>
   </div>
 </template>
 <script>
