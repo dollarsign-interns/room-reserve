@@ -4,6 +4,7 @@
     <h1 class="title">ระบบจองห้อง
       <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
     </h1><hr class="hr1">
+    <div>
       <div class="ex1">
         <div class="wrapper1 ">
           <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
@@ -22,6 +23,7 @@
         </div>          
       </div>
     </div>
+  </div>
   </div>
 </template>
 <script>
