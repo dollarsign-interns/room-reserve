@@ -53,7 +53,7 @@ export default {
     cancelRoom() {
       this.$buefy.dialog.confirm({
         title: `ข้อมูลผู้จอง  `,
-        message: `${this.room.owner}`,
+        message: `ผู้จอง : ${this.room.owner}`,
         confirmText: 'ต้องการลบหรือไม่ ?',
         cancelText: 'ปิด',
         type: 'is-danger',
