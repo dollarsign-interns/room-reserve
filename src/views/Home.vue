@@ -1,31 +1,27 @@
 <template>
   <div class="section">
   <div class="container">
-      <h1 class="title">ระบบจองห้อง
-        <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
-      </h1><hr class="hr1">
+    <h1 class="title">ระบบจองห้อง
+      <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
+    </h1><hr class="hr1">
       <div class="ex1">
-        <div class="row">
-      <div class="wrapper1 ">
-       <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
+        <div class="wrapper1 ">
+          <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>
+        <div class="wrapper2">
+          <room-group class="space" v-for="roomGroup in roomGroupListTwo" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div> 
+        <div class="wrapper3 ">
+          <room-group  class="space" v-for="roomGroup in roomGroupListThree" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>
+        <div class="wrapper4">
+          <room-group  class="space" v-for="roomGroup in roomGroupListFour" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>
+        <div class="wrapper5">
+          <room-group  class="space" v-for="roomGroup in roomGroupListFive" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>          
       </div>
-     <div class="wrapper2">
-        <room-group class="space" v-for="roomGroup in roomGroupListTwo" :group-name="roomGroup" v-bind:key="roomGroup" />
-     </div> 
-     <div class="wrapper3 ">
-        <room-group  class="space" v-for="roomGroup in roomGroupListThree" :group-name="roomGroup" v-bind:key="roomGroup" />
-     </div>
-         
-     <div class="wrapper4">
-        <room-group  class="space" v-for="roomGroup in roomGroupListFour" :group-name="roomGroup" v-bind:key="roomGroup" />
-     </div>
-     <div class="wrapper5">
-        <room-group  class="space" v-for="roomGroup in roomGroupListFive" :group-name="roomGroup" v-bind:key="roomGroup" />
-     </div>
-      
-      </div>
-  </div>
-  </div>
+    </div>
   </div>
 </template>
 <script>
@@ -104,18 +100,7 @@ div.ex1 {
   border-top: 2px solid black;
 }
 
-.column {
-  float: left;
-  width: 33.33%;
-  padding: 15px;
-}
 
-/* Clear floats after the columns */
-.row {
-  content: "";
-  display: table;
-  clear: both;
-}
 
 /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
 @media screen and (max-width:600px) {
