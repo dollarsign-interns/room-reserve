@@ -6,11 +6,11 @@ import router from './router';
 import BootstrapVue from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faCheck,faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import 'buefy/dist/buefy.css';
 
 Vue.use(BootstrapVue)
-library.add(faEye, faEyeSlash);
+library.add(faCheck,faEye, faEyeSlash);
 Vue.use(Buefy,{
   defaultIconComponent: 'vue-fontawesome',
   defaultIconPack: 'fas',

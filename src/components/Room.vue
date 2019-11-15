@@ -1,14 +1,14 @@
 <template>
   <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
-      <b-button v-if="room"
+<b-button v-if="room"
                 class="sizebutton" 
-                type="is-primary"  
+                type="is-dark"  
                 @click="cancelRoom" >
-                {{ name }}
+                 <b-icon style="color:gold" pack="fas" icon="check"></b-icon>
       </b-button>
       <b-button v-else
                 class="sizebutton"
-                type="is-primary"  
+                type="is-dark"  
                 outlined 
                 @click="selectRoom" >
                 {{ name }} 
@@ -37,19 +37,21 @@ export default {
         message: `เพิ่มชื่อผู้จอง`,
         inputAttrs: {
           placeholder: 'พิมพ์ชื่อ',
-          maxlength: 100,
+          maxlength: 1000,
+          
         },
         confirmText: 'ตกลง',
         cancelText: 'ยกเลิก',
         trapFocus: true,
-        onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }),
+         onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }),
       });
     },
     cancelRoom() {
       this.$buefy.dialog.confirm({
-        message: 'คุณต้องการ <b>ลบ</b> ข้อมูลการจองห้องหรือไม่ ?',
-        confirmText: 'ลบ',
-        cancelText: 'ยกเลิก',
+        title: `ข้อมูลผู้จอง  `,
+        message: `${this.room.owner}`,
+        confirmText: 'ลบข้อมูล',
+        cancelText: 'ปิด',
         type: 'is-danger',
         onConfirm: () => store.dispatch('removeRoom', {id:this.name})
       })
@@ -57,11 +59,14 @@ export default {
   },
 };
 </script>
-<style>
-
-.sizebutton {
-  width: 50px;
-  height: 40px;
+<style  scoped>
+.sizebutton{
+width:40px;
+height:100px;
+margin-left: 3px;
 }
 
 </style>
+
+
+

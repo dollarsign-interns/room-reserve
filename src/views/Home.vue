@@ -36,12 +36,11 @@ export default {
   },
   data() {
     return {
-
-      roomGroupListOne: ['D', 'C', 'B', 'A'],
+      roomGroupListOne: ['L', 'K', 'J', 'I'],
       roomGroupListTwo: ['H', 'G', 'F', 'E'],
-      roomGroupListThree: ['L', 'K', 'J', 'I'],
-      roomGroupListFour: ['O', 'N', 'M'],
-      roomGroupListFive: ['R', 'Q', 'P']
+      roomGroupListThree: ['D', 'C', 'B', 'A'],
+      roomGroupListFour: ['R', 'Q', 'P'],
+      roomGroupListFive: ['O', 'N', 'M']  
     };
   },
 
@@ -69,32 +68,33 @@ div.ex1 {
 .wrapper3{
   position: absolute;
   width: 130%;
-  left: 105pc;
-  top: 190px;
+  left: 1090pt;
+  top: 100px;
 }
 .wrapper2 {
   position: absolute;
   width: 130%;
-  left: 78.6pc;
-  top: 190px
+  left: 820pt;
+  top: 100px
 }
-.wrapper1{
+.wrapper1 {
   position: absolute;
   width: 130%;
-  left: 52.3pc;
-  top: 190px
+  left: 550pt;
+  top: 100px
 }
 .wrapper5 {
   position: absolute;
   width: 130%;
-  left: 313pt;
-  top: 40px;
+  left: 270pt;
+  top:40px
 }
 .wrapper4 {
-  width: 36%;
+  width: 130%;
   position: absolute;
   left: 0px;
-  top: 40px;
+  top:40px;
+  padding: 100;
 }
 .space{
   margin-bottom: 10px;
