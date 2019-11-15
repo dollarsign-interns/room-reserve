@@ -1,20 +1,27 @@
 <template>
   <div class="section">
-    <center>
-    <div class="">
-      <h1 class="title">เช็คห้องว่าง
-        <b-button class="is-success" @click="logout">กลับไปหน้า Login</b-button>
-      </h1><hr class="hr1">
-      <div class="overflow">
-        <groupUser  class="wrapper1" v-for="roomGroup in roomGroupListE" :group-name="roomGroup" v-bind:key="roomGroup" />
-        <groupUser  class="wrapper2" v-for="roomGroup in roomGroupListA" :group-name="roomGroup" v-bind:key="roomGroup" />
-        <groupUser  class="wrapper2" v-for="roomGroup in roomGroupListC" :group-name="roomGroup" v-bind:key="roomGroup" />
-        <groupUser  class="wrapper2" v-for="roomGroup in roomGroupListD" :group-name="roomGroup" v-bind:key="roomGroup" />
-      </div>
-      <div>
+  <div class="container">
+    <h1 class="title">เช็คห้องว่าง
+      <b-button type="is-success"  outlined  @click="logout">กลับไปที่หน้า Login</b-button>
+    </h1><hr class="hr1">
+      <div class="ex1">
+        <div class="wrapper1 ">
+          <groupUser class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>
+        <div class="wrapper2">
+          <groupUser class="space" v-for="roomGroup in roomGroupListTwo" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div> 
+        <div class="wrapper3 ">
+          <groupUser class="space" v-for="roomGroup in roomGroupListThree" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>
+        <div class="wrapper4">
+          <groupUser  class="space" v-for="roomGroup in roomGroupListFour" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>
+        <div class="wrapper5">
+          <groupUser class="space" v-for="roomGroup in roomGroupListFive" :group-name="roomGroup" v-bind:key="roomGroup" />
+        </div>          
       </div>
     </div>
-    </center>
   </div>
 </template>
 <script>
@@ -29,12 +36,11 @@ export default {
   },
   data() {
     return {
-      roomGroupListA:['L','H','D','K'],
-      roomGroupListC:['G','C','J','F'],
-      roomGroupListD:['B','I','E','A'],
-      roomGroupListE:['R','O','Q','N','P','M'],
-      
-      
+      roomGroupListOne: ['D', 'C', 'B', 'A'],
+      roomGroupListTwo: ['H', 'G', 'F', 'E'],
+      roomGroupListThree: ['L', 'K', 'J', 'I'],
+      roomGroupListFour: ['O', 'N', 'M'],
+      roomGroupListFive: ['R', 'Q', 'P']  
     };
   },
 
@@ -46,31 +52,59 @@ export default {
 };
 </script>
 <style scoped>
-.wrapper1{
-      margin: 5px;
-    float: left;
-    width: 600px;
-    height: 50px;
-    margin-left: auto;
-    display: flex;
-    flex: -100%;
-}
-.wrapper2{
-     margin: 5px;
-    float: left ;
-    width: 500px;
-    height: 50px;
-    
-}
-.overflow{
+div.ex1 {
   position: absolute;
-  width: 1700px;
-  height: auto;
-  overflow-x: scroll;
+  width: 97.5%;
+  height: 550%;
+  overflow: auto;
 }
 
+.row {
+  content: "";
+  display: table;
+  clear: both;
+}
+.wrapper3{
+  position: absolute;
+  width: 130%;
+  left: 105pc;
+  top: 190px;
+}
+.wrapper2 {
+  position: absolute;
+  width: 130%;
+  left: 78.6pc;
+  top: 190px
+}
+.wrapper1 {
+  position: absolute;
+  width: 130%;
+  left: 52.3pc;
+  top: 190px
+}
+.wrapper5 {
+  position: absolute;
+  width: 130%;
+  left: 313pt;
+  top:40px
+}
+.wrapper4 {
+  width: 130%;
+  position: absolute;
+  left: 0px;
+  top:40px
+}
+.space{
+  margin-bottom: 10px;
+}
 
 .hr1{
     border-top: 2px solid black;
+}
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width:600px) {
+  .column {
+    width: 100%;
+  }
 }
 </style>

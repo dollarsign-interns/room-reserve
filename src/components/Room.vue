@@ -1,7 +1,7 @@
 <template>
   <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
-      <b-button class="sizebutton"
-                v-if="room" 
+      <b-button v-if="room"
+                class="sizebutton" 
                 type="is-primary"  
                 @click="cancelRoom" >
                 {{ name }}
@@ -33,6 +33,7 @@ export default {
   },
   methods: {
     selectRoom() {
+      console.log('selectRoom');
       this.$buefy.dialog.prompt({
         message: `เพิ่มชื่อผู้จอง`,
         inputAttrs: {
@@ -46,6 +47,7 @@ export default {
       });
     },
     cancelRoom() {
+      console.log('cancelRoom');
       this.$buefy.dialog.confirm({
         title: 'ลบข้อมูลการจองห้อง',
         message: 'คุณต้องการ <b>ลบ</b> ข้อมูลการจองห้องหรือไม่ ?',
