@@ -33,7 +33,6 @@ export default {
   },
   methods: {
     selectRoom() {
-      console.log('selectRoom');
       this.$buefy.dialog.prompt({
         message: `เพิ่มชื่อผู้จอง`,
         inputAttrs: {
@@ -47,9 +46,7 @@ export default {
       });
     },
     cancelRoom() {
-      console.log('cancelRoom');
       this.$buefy.dialog.confirm({
-        title: 'ลบข้อมูลการจองห้อง',
         message: 'คุณต้องการ <b>ลบ</b> ข้อมูลการจองห้องหรือไม่ ?',
         confirmText: 'ลบ',
         cancelText: 'ยกเลิก',
