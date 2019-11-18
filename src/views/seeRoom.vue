@@ -2,7 +2,7 @@
   <div class="section">
   <div class="container">
     <h1 class="title">เช็คห้องว่าง
-      <b-button type="is-success"  outlined  @click="logout">กลับไปที่หน้า Login</b-button>
+      <b-button type="is-success"  outlined   @click="back">กลับไปที่หน้า Login</b-button>
     </h1><hr class="hr1">
       <div class="ex1">
         <div class="relative">
@@ -47,8 +47,8 @@ export default {
   },
 
   methods: {
-    logout() {
-        this.$router.replace({name:'login'});
+    back() {
+        this.$router.go(-1);
     },
   },
 };
@@ -62,16 +62,10 @@ div.relative {
 } 
 
 div.ex1 {
-  position: absolute;
-  width: 97.5%;
-  height: 2000%;
+  width: 100%;
+  height: 540px;
   overflow: auto;
-}
-
-.row {
-  content: "";
-  display: table;
-  clear: both;
+  border: 2px solid rgb(28, 29, 28);
 }
 .wrapper3{
   position: absolute;
@@ -98,7 +92,7 @@ div.ex1 {
   top:40px
 }
 .wrapper4 {
-  width: 400px;
+  width:400px;
   position: absolute;
   left: 0px;
   top:40px;
@@ -110,11 +104,5 @@ div.ex1 {
 
 .hr1{
     border-top: 2px solid black;
-}
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  .column {
-    width: 100%;
-  }
 }
 </style>

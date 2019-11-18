@@ -86,7 +86,7 @@ export default {
         });
     },
     submit(){
-        this.$router.replace({name:'seeroom'});
+        this.$router.push({name:'seeroom'});
     },
   },
 };

@@ -24,10 +24,10 @@ export default {
       if (user) {
         console.debug({ user });
         store.dispatch('loggedIn');
-        router.replace('/home').catch((err) => {});
+        router.push('/home').catch((err) => {});
       } else {
         store.dispatch('loggedOut');
-        router.replace('/').catch((err) => {});
+        router.push('/').catch((err) => {});
       }
     });
   },

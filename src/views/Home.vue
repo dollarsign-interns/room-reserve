@@ -2,9 +2,9 @@
   <div class="section">
   <div class="container">
     <h1 class="title">ระบบจองห้อง
-      <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
+      <b-button type="is-danger"  outlined  @click="logout">ออกจากระบบ</b-button>
     </h1><hr class="hr1">
-    <div class=" ex1 ">
+    <div class="ex1">
       <div class="relative">
         <div class="wrapper1 ">
           <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
@@ -53,6 +53,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 div.relative {
   position: relative;
@@ -62,13 +63,10 @@ div.relative {
 } 
 
 div.ex1 {
-  position: absolute;
-  width: 97.5%;
-  height: 2000%;
+  width: 100%;
+  height: 540px;
   overflow: auto;
-}
-.all {
-  margin-left: 50px;
+  border: 2px solid rgb(28, 29, 28);
 }
 .wrapper3{
   position: absolute;
