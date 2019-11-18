@@ -1,5 +1,6 @@
 <template>
-  <div class="section">    
+  <div class="section">
+    <router-view ></router-view>
   <div class="container">
     <h1 class="title">เช็คห้องว่าง
       <b-button type="is-success"  outlined  @click="logout">กลับไปที่หน้า Login</b-button>
@@ -28,6 +29,7 @@
 import store from '@/store/store';
 import firebase from 'firebase/app';
 import groupUser from '@/components/groupUser.vue';
+
 
 export default {
   name: 'seeroom',

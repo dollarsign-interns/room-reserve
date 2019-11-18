@@ -37,6 +37,7 @@ const store = new Vuex.Store({
     rooms: {},
     isLoggedIn: false,
     isLoading: true,
+
   },
   mutations: {
     ...vuexfireMutations,
@@ -59,6 +60,7 @@ const store = new Vuex.Store({
     removeRoom,
     loggedIn,
     loggedOut,
+    
   },
   getters: {
     // isLoggedIn: (state) => {

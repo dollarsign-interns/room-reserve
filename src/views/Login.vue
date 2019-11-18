@@ -1,6 +1,7 @@
 <template>
-    <div  style="background-image: url('../assets/bg-01.png');">    
-      <b-navbar>
+    <div class="body" >    
+    <router-view />
+      <b-navbar class="">
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img
@@ -27,7 +28,7 @@
                       </p>
                     </b-modal>
       <center>
-      <form  >
+      <form  class="card" style="width:450px;">
       <section  v-on:keyup.enter="onSubmit"   class="" style="width:330px" > 
       <b-field 
             label="Email">
@@ -57,6 +58,7 @@
         <b-button   @click="onSubmit" style="width:330px;
                   height:45px;" class="is-success" type="submit">Login</b-button>
         </section>
+        <br>
         </form>
         </center> 
   </div>
@@ -105,12 +107,15 @@ export default {
   },
 };
 </script>
-<style>
-
- .body {
-        background-color: #F3EBF6;
-        font-family: 'Ubuntu', sans-serif;
-    }
+<style >
+.card {
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 
 

@@ -1,5 +1,6 @@
 <template>
   <div class="">
+    <router-view />
      <b-navbar>
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -10,7 +11,7 @@
         </template>
         <template slot="start">
             <b-navbar-item href="#">
-               ชื่อผู้ใช้
+
             </b-navbar-item>
         </template>
         <template slot="end">
