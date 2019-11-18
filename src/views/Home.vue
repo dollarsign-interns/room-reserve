@@ -24,10 +24,9 @@
       </b-navbar>
   <div class="container">
     <h1 class="title">ระบบจองห้อง
-      
     </h1><hr class="hr1">
-    <div>
-      <div class="ex1">
+    <div class="ex1">
+      <div class="relative">
         <div class="wrapper1 ">
           <room-group class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>
@@ -72,23 +71,26 @@ export default {
   methods: {
     logout() {
       firebase.auth().signOut();
+      
     },
   },
 };
 </script>
+
 <style scoped>
+div.relative {
+  position: relative;
+  width: 350px;
+  height: 200px;
+
+} 
 
 div.ex1 {
-  position: absolute;
-  width: 97.5%;
-  height: 1400%;
-  overflow: auto;
-}
 
-.row {
-  content: "";
-  display: table;
-  clear: both;
+  width: 100%;
+  height: 540px;
+  overflow: auto;
+  border: 2px solid rgb(28, 29, 28);
 }
 .wrapper5 {
   position: absolute;
@@ -105,8 +107,8 @@ div.ex1 {
 }
 .wrapper3{
   position: absolute;
-  width: 130%;
-  left: 1090pt;
+  width: 100%;
+  left: 1130pt;
   top: 100px;
 }
 .wrapper2 {
@@ -121,6 +123,19 @@ div.ex1 {
   left: 550pt;
   top: 100px
 }
+.wrapper5 {
+  position: absolute;
+  width: 350px;
+  left: 290pt;
+  top:40px
+}
+.wrapper4 {
+  width:400px;
+  position: absolute;
+  left: 0px;
+  top:40px;
+  padding: 100;
+}
 
 .space{
   margin-bottom: 10px;
@@ -129,10 +144,5 @@ div.ex1 {
 .hr1{
     border-top: 2px solid black;
 }
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  .column {
-    width: 100%;
-  }
-}
+
 </style>

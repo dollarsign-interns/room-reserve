@@ -3,9 +3,10 @@
     <router-view ></router-view>
   <div class="container">
     <h1 class="title">เช็คห้องว่าง
-      <b-button type="is-success"  outlined  @click="logout">กลับไปที่หน้า Login</b-button>
+      <b-button type="is-success"  outlined   @click="back">กลับไปที่หน้า Login</b-button>
     </h1><hr class="hr1">
       <div class="ex1">
+        <div class="relative">
         <div class="wrapper1 ">
           <groupUser class="space" v-for="roomGroup in roomGroupListOne" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>
@@ -21,6 +22,7 @@
         <div class="wrapper5">
           <groupUser class="space" v-for="roomGroup in roomGroupListFive" :group-name="roomGroup" v-bind:key="roomGroup" />
         </div>          
+      </div>
       </div>
     </div>
   </div>
@@ -47,31 +49,44 @@ export default {
   },
 
   methods: {
-    logout() {
-        this.$router.replace({name:'login'});
+    back() {
+        this.$router.push({name:'login'});
     },
   },
 };
 </script>
 <style scoped>
+div.relative {
+  position: relative;
+  width: 350px;
+  height: 200px;
+
+} 
+
 div.ex1 {
-  margin-left: 50px;
-  position: absolute;
-  width: 97.5%;
-  height: 550%;
-  overflow-y: auto;
 
+  width: 100%;
+  height: 540px;
+  overflow: auto;
+  border: 2px solid rgb(28, 29, 28);
 }
-
-.row {
-  content: "";
-  display: table;
-  clear: both;
+.wrapper5 {
+  position: absolute;
+  width: 450px;
+  left: 270pt;
+  top:40px
+}
+.wrapper4 {
+  width: 450px;
+  position: absolute;
+  left: 0px;
+  top:40px;
+  padding: 100;
 }
 .wrapper3{
   position: absolute;
-  width: 130%;
-  left: 1090pt;
+  width: 100%;
+  left: 1130pt;
   top: 100px;
 }
 .wrapper2 {
@@ -88,28 +103,23 @@ div.ex1 {
 }
 .wrapper5 {
   position: absolute;
-  width: 47%;
-  left: 270pt;
+  width: 350px;
+  left: 290pt;
   top:40px
 }
 .wrapper4 {
-  width: 47%;
+  width:400px;
   position: absolute;
   left: 0px;
   top:40px;
   padding: 100;
 }
+
 .space{
   margin-bottom: 10px;
 }
 
 .hr1{
     border-top: 2px solid black;
-}
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-@media screen and (max-width:600px) {
-  .column {
-    width: 100%;
-  }
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
-  <b-tooltip  :active="!!room">
-<b-button v-if="room"
+  <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-right" :active="!!room" type="is-dark">
+      <b-button v-if="room"
                 class="sizebutton" 
                 type="is-dark"  
                 @click="cancelRoom" >
-                 <div style="hight:100px">{{ name }} </div>
-                 <div style="margin-top:40px;"><b-icon style="color:gold;" pack="fas" icon="check"></b-icon></div>
+                <div style="height:100px;">{{name}}</div>
+                <div style="margin-top:-40px"><b-icon style="color: gold;" pack="fas" icon="check"></b-icon></div>
       </b-button>
       <b-button v-else
                 class="sizebutton"
                 type="is-dark"  
                 outlined 
                 @click="selectRoom" >
-                {{ name }} 
+                <div style="height:100px;">{{name}}</div> 
       </b-button>
   </b-tooltip>  
 </template>
@@ -39,10 +39,10 @@ export default {
         inputAttrs: {
           placeholder: 'พิมพ์ชื่อ',
           maxlength: 1000,
-          
         },
         confirmText: 'ตกลง',
         cancelText: 'ยกเลิก',
+        type:'is-dark',
         trapFocus: true,
          onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }),
       });
@@ -50,8 +50,8 @@ export default {
     cancelRoom() {
       this.$buefy.dialog.confirm({
         title: `ข้อมูลผู้จอง  `,
-        message: `${this.room.owner}`,
-        confirmText: 'ลบข้อมูล',
+        message: `ผู้จอง : ${this.room.owner}`,
+        confirmText: 'ต้องการลบหรือไม่ ?',
         cancelText: 'ปิด',
         type: 'is-danger',
         onConfirm: () => store.dispatch('removeRoom', {id:this.name})

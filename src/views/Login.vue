@@ -1,5 +1,6 @@
+อ้น, [15.11.19 17:21]
 <template>
-    <div class="body" >    
+    <div class="" >    
     <router-view />
       <b-navbar class="">
         <template slot="brand">
@@ -27,12 +28,22 @@
                       <img src="../assets/mapping.png">
                       </p>
                     </b-modal>
-      <center>
-      <form  class="card" style="width:450px;">
-      <section  v-on:keyup.enter="onSubmit"   class="" style="width:330px" > 
+           <div class="body">
+             <br>
+             <br>
+             <br>
+             <br>
+             <center>
+        <div style="margin-left:auto;margin-right:auto" >
+          <form  class="card" style="width:450px;">
+      <section  v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-50px" > 
+        <br>
       <b-field 
+      style="margin-right:175px;"
             label="Email">
+      </b-field>  
             <b-input 
+            style="margin-left:50px;"
             type="email" 
             placeholder="Email"
             required
@@ -40,10 +51,13 @@
             v-model="form.email"
             oninvalid="this.setCustomValidity('กรุณาใส่ Email')">
             </b-input>
-            </b-field>
-            <b-field 
+           <br>
+            <b-field style="margin-right:175px;"
             label="รหัสผ่าน">
+            
+            </b-field>
             <b-input 
+            style="margin-left:50px;"
             type="password"
              placeholder="รหัสผ่าน"
               id="password"
@@ -53,14 +67,15 @@
                 password-reveal
                 oninvalid="this.setCustomValidity('กรุณาใส่รหัสผ่าน')">
             </b-input>
-        </b-field>
         <br>
-        <b-button   @click="onSubmit" style="width:330px;
+        <b-button   @click="onSubmit" style="width:280px;margin-left:50px;
                   height:45px;" class="is-success" type="submit">Login</b-button>
         </section>
         <br>
         </form>
-        </center> 
+        </div>
+        </center>
+        </div>         
   </div>
 </template>
 <script>
@@ -102,12 +117,12 @@ export default {
         });
     },
     submit(){
-        this.$router.replace({name:'seeroom'});
+        this.$router.push({name:'seeroom'});
     },
   },
 };
 </script>
-<style >
+<style  scopped>
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -116,7 +131,55 @@ export default {
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.body {
+    margin: 0;
+    width: auto;
+    height: 500px;
+    font-family: "Exo", sans-serif;
+    color: #fff;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
 
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    width: 100%;
+    position: absolute;
+    top: 35%;
+    text-align: center;
+}
+
+h1 {
+    font-weight: 300;
+}
+
+h3 {
+    color: #eee;
+    font-weight: 100;
+}
+
+h5 {
+    color:#eee;
+    font-weight:300;
+}
+
+a,
+a:hover {
+    text-decoration: none;
+    color: #ddd;
+}
 
 
 </style>
