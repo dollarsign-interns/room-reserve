@@ -1,8 +1,29 @@
 <template>
-  <div class="section">
+  <div class="">
+     <b-navbar>
+        <template slot="brand">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
+                <img  
+                    src="../assets/door.png"
+                      >
+            </b-navbar-item>
+        </template>
+        <template slot="start">
+            <b-navbar-item href="#">
+               ชื่อผู้ใช้
+            </b-navbar-item>
+        </template>
+        <template slot="end">
+            <b-navbar-item tag="div">
+                <div class="buttons">
+                    <b-button type="is-danger"  outlined  @click="logout">ออกจากระบบ</b-button>
+                </div>
+            </b-navbar-item>
+        </template>
+      </b-navbar>
   <div class="container">
     <h1 class="title">ระบบจองห้อง
-      <b-button type="is-danger"  outlined  @click="logout">Logout</b-button>
+      
     </h1><hr class="hr1">
     <div>
       <div class="ex1">
@@ -32,6 +53,7 @@ import firebase from 'firebase/app';
 import RoomGroup from '@/components/RoomGroup.vue';
 
 export default {
+  isImageModalActive:false,
   name: 'Home',
   components: {
     RoomGroup,
@@ -58,7 +80,7 @@ export default {
 div.ex1 {
   position: absolute;
   width: 97.5%;
-  height: 550%;
+  height: 1400%;
   overflow: auto;
 }
 
@@ -66,6 +88,19 @@ div.ex1 {
   content: "";
   display: table;
   clear: both;
+}
+.wrapper5 {
+  position: absolute;
+  width: 450px;
+  left: 270pt;
+  top:40px
+}
+.wrapper4 {
+  width: 450px;
+  position: absolute;
+  left: 0px;
+  top:40px;
+  padding: 100;
 }
 .wrapper3{
   position: absolute;
@@ -85,19 +120,7 @@ div.ex1 {
   left: 550pt;
   top: 100px
 }
-.wrapper5 {
-  position: absolute;
-  width: 130%;
-  left: 270pt;
-  top:40px
-}
-.wrapper4 {
-  width: 130%;
-  position: absolute;
-  left: 0px;
-  top:40px;
-  padding: 100;
-}
+
 .space{
   margin-bottom: 10px;
 }

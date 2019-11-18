@@ -1,5 +1,5 @@
 <template>
-  <b-tooltip :label="`ผู้จอง : ${room && room.owner}`" position="is-top" :active="!!room">
+  <b-tooltip  :active="!!room">
 <b-button v-if="room"
                 class="sizebutton" 
                 type="is-dark"  

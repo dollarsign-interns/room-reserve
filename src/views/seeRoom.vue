@@ -1,5 +1,5 @@
 <template>
-  <div class="section">
+  <div class="section">    
   <div class="container">
     <h1 class="title">เช็คห้องว่าง
       <b-button type="is-success"  outlined  @click="logout">กลับไปที่หน้า Login</b-button>
@@ -53,10 +53,12 @@ export default {
 </script>
 <style scoped>
 div.ex1 {
+  margin-left: 50px;
   position: absolute;
   width: 97.5%;
   height: 550%;
-  overflow: auto;
+  overflow-y: auto;
+
 }
 
 .row {
@@ -84,12 +86,12 @@ div.ex1 {
 }
 .wrapper5 {
   position: absolute;
-  width: 130%;
+  width: 47%;
   left: 270pt;
   top:40px
 }
 .wrapper4 {
-  width: 130%;
+  width: 47%;
   position: absolute;
   left: 0px;
   top:40px;

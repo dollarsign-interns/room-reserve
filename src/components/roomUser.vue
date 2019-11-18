@@ -12,7 +12,7 @@
                 type="is-dark"  
                 outlined 
                 @click="selectRoom" >
-                {{ name }} 
+                <div style="hight:100px">{{ name }} </div>
       </b-button>
   </b-tooltip>
 </template>
