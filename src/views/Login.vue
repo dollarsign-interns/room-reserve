@@ -36,15 +36,15 @@
              <center>
         <div style="margin-left:auto;margin-right:auto" >
           <form  class="card" style="width:450px;">
-      <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-50px" > 
+      <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-10px" > 
         <br>
       <b-field 
-      style="margin-right:175px;"
+            style="margin-right:200px; "
             label="Email">
-      </b-field>  
-            <b-input 
-            style="margin-left:50px;"
-            type="email" 
+              <b-input 
+            style="margin-left:25px;width:290px"
+            oninvalid="this.setCustomValidity('กรุณาใส่อีเมล')"
+            type="email"
             placeholder="Email"
             required
             title="ใส่ Email"
@@ -52,13 +52,13 @@
             v-model="form.email"
             >
             </b-input>
+      </b-field>  
+
            <br>
-            <b-field style="margin-right:175px;"
+            <b-field style="margin-right:200px; "
             label="รหัสผ่าน">
-            
-            </b-field>
-            <b-input 
-            style="margin-left:50px;"
+                        <b-input 
+            style="margin-left:25px;width:290px"
             type="password"
              placeholder="รหัสผ่าน"
               id="password"
@@ -68,10 +68,13 @@
               password-reveal
               title="ใส่รหัสผ่าน"  >
             </b-input>
+            
+            </b-field>
+
         <br>
         <div>
     <VueLoadingButton
-    style="width:280px;margin-left:50px; "
+    style="width:290px;margin-left:10px; "
       class="button"
       @click.native="onSubmit"
       :loading="isLoading"
@@ -111,13 +114,13 @@ export default {
         .signInWithEmailAndPassword(this.form.email, this.form.password)
         this.isLoading = true
           setTimeout(() => (this.isLoading = false), 7000)
-                    this.$buefy.toast.open({
+          this.$buefy.toast.open({
                     message: 'เข้าสู่ระบบเรียบร้อย',
                     type: 'is-success',
                 })
         .then(() => {
           this.$router.replace({ name: 'Home' });
-
+          
         })
         .catch((err) => {
           this.error = err.message;
