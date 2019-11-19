@@ -28,7 +28,7 @@
                       <img src="../assets/mapping.png">
                       </p>
                     </b-modal>
-           <div class="body">
+           <div   class="body">
              <br>
              <br>
              <br>
@@ -36,7 +36,7 @@
              <center>
         <div style="margin-left:auto;margin-right:auto" >
           <form  class="card" style="width:450px;">
-      <section  v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-50px" > 
+      <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-50px" > 
         <br>
       <b-field 
       style="margin-right:175px;"
@@ -47,9 +47,10 @@
             type="email" 
             placeholder="Email"
             required
+            title="ใส่ Email"
             autofocus
             v-model="form.email"
-            oninvalid="this.setCustomValidity('กรุณาใส่ Email')">
+            >
             </b-input>
            <br>
             <b-field style="margin-right:175px;"
@@ -64,12 +65,18 @@
               name="password"
              required
              v-model="form.password"
-                password-reveal
-                oninvalid="this.setCustomValidity('กรุณาใส่รหัสผ่าน')">
+              password-reveal
+              title="ใส่รหัสผ่าน"  >
             </b-input>
         <br>
-        <b-button   @click="onSubmit" style="width:280px;margin-left:50px;
-                  height:45px;" class="is-success" type="submit">Login</b-button>
+        <div>
+    <VueLoadingButton
+    style="width:280px;margin-left:50px; "
+      class="button"
+      @click.native="onSubmit"
+      :loading="isLoading"
+    >Login</VueLoadingButton>
+          </div>  
         </section>
         <br>
         </form>
@@ -83,11 +90,12 @@ import firebase from 'firebase/app';
 import ui from '../store/firebase-ui';
 import store from '../store/store';
 import Room from '@/components/Room';
-
+import VueLoadingButton from "vue-loading-button";
 export default {
   data(){
     
     return{
+      isLoading: false,
       isImageModalActive:false,
       form:{
         email:'',
@@ -101,18 +109,21 @@ export default {
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
+        this.isLoading = true
+          setTimeout(() => (this.isLoading = false), 7000)
+                    this.$buefy.toast.open({
+                    message: 'เข้าสู่ระบบเรียบร้อย',
+                    type: 'is-success',
+                })
         .then(() => {
           this.$router.replace({ name: 'Home' });
-          this.$buefy.toast.open({
-                    message: 'เข้าสู่ระบบเรียบร้อย',
-                    type: 'is-success'
-                });
+
         })
-          .catch((err) => {
+        .catch((err) => {
           this.error = err.message;
           this.$buefy.toast.open({
-                    message: 'Email หรือ รหัสผ่านผิด',
-                    type: 'is-danger'
+                    message: 'กรุณาใส่ Email หรือ รหัสผ่านให้ถูกต้อง',
+                    type: 'is-danger',
                 });
         });
     },
@@ -120,16 +131,19 @@ export default {
         this.$router.push({name:'seeroom'});
     },
   },
+  components: {
+    VueLoadingButton
+  }
 };
 </script>
 <style  scopped>
 .card {
   /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgb(0, 0, 0);
   transition: 0.3s;
 }
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgb(240, 20, 20);
 }
 .body {
     margin: 0;
@@ -137,7 +151,7 @@ export default {
     height: 500px;
     font-family: "Exo", sans-serif;
     color: #fff;
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background: linear-gradient(-45deg, #000000, #e73c7e, #23a6d5, #000303);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -178,8 +192,14 @@ h5 {
 a,
 a:hover {
     text-decoration: none;
-    color: #ddd;
+    color: rgb(241, 1, 1);
 }
-
+.example {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 60px;
+  text-align: center;
+}
 
 </style>

@@ -8,8 +8,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCheck,faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import 'buefy/dist/buefy.css';
+import ParticleEffectButton from "vue-particle-effect-buttons";
 
-Vue.use(BootstrapVue)
+
+Vue.use(ParticleEffectButton);
+Vue.use(BootstrapVue);
 library.add(faCheck,faEye, faEyeSlash);
 Vue.use(Buefy,{
   defaultIconComponent: 'vue-fontawesome',

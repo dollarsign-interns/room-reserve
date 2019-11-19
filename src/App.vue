@@ -27,7 +27,7 @@ export default {
         router.replace('/home').catch((err) => {});
       } else {
         store.dispatch('loggedOut');
-        router.push({name:'login'}).catch((err) => {});
+       
       }
     });
   },

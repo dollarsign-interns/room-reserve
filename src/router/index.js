@@ -4,10 +4,11 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import seeRoom from '../views/seeRoom.vue';
 
+
 Vue.use(VueRouter);
 const routes = [
   {
-    path: '/home',
+    path: '/home',  
     name: 'home',
     component: Home,
   },
@@ -21,6 +22,7 @@ const routes = [
     name: 'seeroom',
     component: seeRoom,
   },
+ 
 ];
 
 const router = new VueRouter({
