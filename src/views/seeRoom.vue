@@ -66,7 +66,7 @@ div.relative {
 div.ex1 {
 
   width: 100%;
-  height: 540px;
+  height: calc(100vh - 190px);
   overflow: auto;
   border: 2px solid rgb(28, 29, 28);
 }

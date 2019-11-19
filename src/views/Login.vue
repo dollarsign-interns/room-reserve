@@ -96,8 +96,7 @@ import Room from '@/components/Room';
 import VueLoadingButton from "vue-loading-button";
 export default {
   data(){
-    
-    return{
+    return{ 
       isLoading: false,
       isImageModalActive:false,
       form:{
@@ -112,15 +111,12 @@ export default {
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
-        this.isLoading = true
-          setTimeout(() => (this.isLoading = false), 7000)
+        .then(() => {
+          this.$router.replace({ name: 'Home' });
           this.$buefy.toast.open({
                     message: 'เข้าสู่ระบบเรียบร้อย',
                     type: 'is-success',
                 })
-        .then(() => {
-          this.$router.replace({ name: 'Home' });
-          
         })
         .catch((err) => {
           this.error = err.message;
