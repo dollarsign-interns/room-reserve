@@ -39,11 +39,11 @@
       <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-10px" > 
         <br>
       <b-field 
-            style="margin-right:200px; "
+            style="margin-right:200px;"
             label="Email">
               <b-input 
             style="margin-left:25px;width:290px"
-            oninvalid="this.setCustomValidity('กรุณาใส่อีเมล')"
+            oninvalid="this.setCustomValidity('อีเมลไม่ถูกต้อง')"
             type="email"
             placeholder="Email"
             required
@@ -73,12 +73,13 @@
 
         <br>
         <div>
-    <VueLoadingButton
+    <b-button
     style="width:290px;margin-left:10px; "
-      class="button"
-      @click.native="onSubmit"
+      class="is-primary"
+      @click="onSubmit"
       :loading="isLoading"
-    >Login</VueLoadingButton>
+    :can-cancel="true"
+    >Login</b-button>
           </div>  
         </section>
         <br>
@@ -97,6 +98,7 @@ import VueLoadingButton from "vue-loading-button";
 export default {
   data(){
     return{ 
+      isFullPage: true,
       isLoading: false,
       isImageModalActive:false,
       form:{
@@ -108,15 +110,21 @@ export default {
   },
   methods: {
     onSubmit() {
+              this.isLoading = true
+          setTimeout(() => {
+                    this.isLoading = false
+                }, 3000)
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
+ 
         .then(() => {
           this.$router.replace({ name: 'Home' });
           this.$buefy.toast.open({
                     message: 'เข้าสู่ระบบเรียบร้อย',
                     type: 'is-success',
                 })
+                
         })
         .catch((err) => {
           this.error = err.message;
