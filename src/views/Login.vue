@@ -1,34 +1,32 @@
 อ้น, [15.11.19 17:21]
 <template>
-    <div  class="section" >    
-      <center>
+  <div  class="section" >    
+    <center>
       <form  style="width:330px">
-      <section @click="onSubmit" class="" > 
-      <b-field 
-            label="Email">
+        <section @click="onSubmit" class="" > 
+          <b-field label="Email">
             <b-input 
-            type="email" 
-            placeholder="Email"
-            required
-            autofocus
-            v-model="form.email">
+              type="email" 
+              placeholder="Email"
+              required
+              autofocus
+              v-model="form.email">
             </b-input>
-            </b-field>
-            <b-field 
-            label="รหัสผ่าน">
+          </b-field>
+          
+          <b-field label="รหัสผ่าน">
             <b-input 
-            type="password"
-             placeholder="รหัสผ่าน"
+              type="password"
+              placeholder="รหัสผ่าน"
               id="password"
               name="password"
-             required
-             v-model="form.password"
-                password-reveal>
+              required
+              v-model="form.password"
+              password-reveal>
             </b-input>
-        </b-field>
-        <b-button   style="width:160px;
-                  height:45px;" class="is-success" type="onSumbit">Login</b-button>
-        </section>
+          </b-field>
+        <b-button style="width:160px;height:45px;" class="is-success" type="onSumbit">Login</b-button>
+      </section>
         <br>
         <button 
                 style="width:160px;
