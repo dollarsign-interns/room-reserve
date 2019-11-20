@@ -44,7 +44,7 @@ export default {
         },
         confirmText: 'ตกลง',
         cancelText: 'ยกเลิก',
-        type:'is-dark',
+        type:'is-warning',
         trapFocus: true,
          onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }).then(()=>{
             this.$buefy.toast.open({
@@ -52,17 +52,17 @@ export default {
               message:'เพิ่มข้อมูลสำเร็จ',
             });
          }),  
-      });
-      
+      });    
     },
     cancelRoom() {
       this.$buefy.dialog.confirm({
         title: `ข้อมูลผู้จอง  `,
         message: `ผู้จอง : ${this.room.owner}`,
-        confirmText: 'ลบข้อมูล',
-        cancelText: 'ปิด',
+        confirmText: 'ปิด',
+        cancelText: 'ลบข้อมูล',
         type: 'is-danger',
-        onConfirm: () => store.dispatch('removeRoom', {id:this.name}).then(()=>{
+        trapFocus: true,
+        onCancel: () => store.dispatch('removeRoom', {id:this.name}).then(()=>{
             this.$buefy.toast.open({
               type:'is-danger',
               message:'ลบข้อมูลสำเร็จ',

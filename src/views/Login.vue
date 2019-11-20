@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
     <div>    
     <router-view/>
       <b-navbar>
@@ -14,9 +13,7 @@
             <b-navbar-item tag="div">
                 <div class="buttons">
                     <a  @click="submit" 
-                        class="button is-primary"
-                        :loading="isLoading"
-                        :can-cancel="true">
+                        class="button is-primary">
                         <strong>เช็คห้องว่าง</strong>
                     </a>
                     <a class="button is-info" @click="isImageModalActive = true">
@@ -26,100 +23,65 @@
             </b-navbar-item>
         </template>
       </b-navbar>
-      <b-modal :active.sync="isImageModalActive">
-                    <p class="image is-2by1">
-                      <img src="../assets/mapping.png">
-                      </p>
-                    </b-modal>
-           <div class="body">
-             <br>
-             <br>
-             <br>
-             <br>
-             <center>
-        <div style="margin-left:auto;margin-right:auto" >
-          <form  class="card" style="width:450px;">
-      <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-10px" > 
-        <br>
-        <p style="margin-right:250px">อีเมล</p>
-      <b-field > 
-              <b-input 
-                style="width:300px"
-                oninvalid= "if (this.value == ''){this.setCustomValidity('โปรดใส่อีเมล')} if (this.value != ''){this.setCustomValidity('กรอกอีเมลไม่ถูกต้อง กรุณาใส่ @ เช่น abx@abx.xo')}" 
-                oninput="setCustomValidity('')"
-                type="email"  
-                placeholder="อีเมล"
-                required
-                title="ใส่ Email"
-                autofocus
-                v-model="form.email"
-            >
-            </b-input>
-      </b-field>  
-           <br>
-            <p style="margin-right:230px">รหัสผ่าน</p>
-            <b-field>
-            <b-input 
-              style="width:300px"
-            oninvalid="this.setCustomValidity('โปรดใส่รหัสผ่าน')"
-            type="password"
-             placeholder="รหัสผ่าน"
-              id="password"
-              name="password"
-             required
-             v-model="form.password"
-              password-reveal
-              title="ใส่รหัสผ่าน"  >
-            </b-input>
-            </b-field>
 
-        <br>
-        <div>
-    <b-button style="width:300px;" 
-              class="is-primary"
-              @click="onSubmit"
-              :loading="isLoading"
-              :can-cancel="true">
-              Login
-    </b-button>
-          </div>  
-        </section>
-=======
-  <div  class="section" >    
+      <b-modal :active.sync="isImageModalActive">
+        <p class="image is-2by1">
+            <img src="../assets/mapping.png">
+        </p>
+      </b-modal>
+      
+    <div class="body"><br><br><br><br>  
     <center>
-      <form  style="width:330px">
-        <section @click="onSubmit" class="" > 
-          <b-field label="Email">
-            <b-input 
-              type="email" 
-              placeholder="Email"
-              required
-              autofocus
-              v-model="form.email">
-            </b-input>
-          </b-field>
-          
-          <b-field label="รหัสผ่าน">
-            <b-input 
-              type="password"
-              placeholder="รหัสผ่าน"
-              id="password"
-              name="password"
-              required
-              v-model="form.password"
-              password-reveal>
-            </b-input>
-          </b-field>
-        <b-button style="width:160px;height:45px;" class="is-success" type="onSumbit">Login</b-button>
-      </section>
->>>>>>> master
-        <br>
+      <div style="margin-left:auto;margin-right:auto" >
+        <form  class="card" style="width:450px;">
+          <section   v-on:keyup.enter="onSubmit"  style="width:330px;margin-left:-10px" ><br>
+            <p style="margin-right:250px">อีเมล</p>
+              <b-field > 
+                <b-input 
+                  style="width:300px"
+                  oninvalid= "if (this.value == ''){this.setCustomValidity('โปรดใส่อีเมล')} if (this.value != ''){this.setCustomValidity('กรอกอีเมลไม่ถูกต้อง กรุณาใส่ @ เช่น abx@abx.xo')}" 
+                  oninput="setCustomValidity('')"
+                  type="email"  
+                  placeholder="อีเมล"
+                  required
+                  title="ใส่ Email"
+                  autofocus
+                  v-model="form.email">
+                </b-input>
+              </b-field>  <br>
+            <p style="margin-right:230px">รหัสผ่าน</p>
+              <b-field>
+                <b-input 
+                  style="width:300px"
+                  oninvalid="this.setCustomValidity('โปรดใส่รหัสผ่าน')"
+                  type="password"
+                  placeholder="รหัสผ่าน"
+                  id="password"
+                  name="password"
+                  required
+                  v-model="form.password"
+                  password-reveal
+                  title="ใส่รหัสผ่าน"  >
+                </b-input>
+              </b-field><br>
+              <div>
+                <b-button 
+                  style="width:300px;" 
+                  class="is-primary"
+                  @click="onSubmit"
+                  :loading="isLoading"
+                  :can-cancel="true">
+                  Login
+                </b-button>
+              </div>  
+          </section><br>
         </form>
-        </div>
-        </center>
-        </div>         
+      </div>
+    </center>
+    </div>         
   </div>
 </template>
+
 <script>
 import firebase from 'firebase/app';
 import ui from '../store/firebase-ui';
@@ -128,7 +90,6 @@ import Room from '@/components/Room';
 import VueLoadingButton from "vue-loading-button";
 
 export default {
-  
   data(){
     return{ 
       isFullPage: true,
@@ -141,36 +102,33 @@ export default {
       error: null,
     }
   },
+  components: {
+    VueLoadingButton
+  },
   methods: {
     onSubmit() {
-              this.isLoading = true
-          setTimeout(() => {
-                    this.isLoading = false
-                }, 3000);
-        firebase
-        .auth()
-        .signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then((user) => {
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+      }, 3000);
+        firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then((user) => {
           this.$buefy.toast.open({
                     message: 'เข้าสู่ระบบสำเร็จ',
                     type: 'is-success',
-                })
+          });
         })
         .catch((err) => {
           this.error = err.message;
           this.$buefy.toast.open({
                     message: 'กรุณาใส่ Email หรือ รหัสผ่านให้ถูกต้อง',
                     type: 'is-danger',
-                });
+          });
         });
     },
     submit(){
         this.$router.push({name:'seeroom'});
     },
   },
-  components: {
-    VueLoadingButton
-  }
 };
 </script>
 <style  scopped>

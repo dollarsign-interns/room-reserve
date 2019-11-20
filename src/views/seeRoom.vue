@@ -1,9 +1,9 @@
 <template>
   <div class="section">
-    <router-view ></router-view>
+    <router-view/>
   <div class="container">
     <h1 class="title">เช็คห้องว่าง
-      <b-button type="is-success"  outlined   @click="back">กลับไปที่หน้า Login</b-button>
+      <b-button type="is-danger" @click="back">กลับไปที่หน้า Login</b-button>
     </h1><hr class="hr1">
       <div class="ex1">
         <div class="relative">
@@ -50,7 +50,7 @@ export default {
 
   methods: {
     back() {
-        this.$router.push({name:'login'});
+        this.$router.go(-1);
     },
   },
 };
