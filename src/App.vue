@@ -25,6 +25,7 @@ export default {
       if (user) {
         console.debug({ user });
         store.dispatch('loggedIn');
+        router.replace('/home')
       } else {
         store.dispatch('loggedOut');
       }

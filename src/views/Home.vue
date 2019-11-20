@@ -87,7 +87,7 @@ export default {
       firebase.auth().signOut().then(() => {
         this.$router.replace('/');
         this.$buefy.toast.open({
-          message: 'ออกจากระบบเรียบร้อย',
+          message: 'ออกจากระบบสำเร็จ',
           type: 'is-danger',
         })
       });

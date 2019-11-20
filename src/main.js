@@ -22,14 +22,9 @@ Vue.use(Buefy,{
 Vue.config.productionTip = false;
 Vue.component('vue-fontawesome', FontAwesomeIcon);
 
-let app = '';
-firebase.auth().onAuthStateChanged(() => {
-  if(!app){
-    app = new Vue({
+ new Vue({
       router,
       store,
       render: (h) => h(App),
     }).$mount('#app');
-  }
-});
 

@@ -1,8 +1,7 @@
-อ้น, [15.11.19 17:21]
 <template>
-    <div class="" >    
-    <router-view />
-      <b-navbar class="is-dark">
+    <div>    
+    <router-view/>
+      <b-navbar>
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img
@@ -13,7 +12,10 @@
         <template slot="end">
             <b-navbar-item tag="div">
                 <div class="buttons">
-                    <a  @click="submit" class="button is-primary">
+                    <a  @click="submit" 
+                        class="button is-primary"
+                        :loading="isLoading"
+                        :can-cancel="true">
                         <strong>เช็คห้องว่าง</strong>
                     </a>
                     <a class="button is-info" @click="isImageModalActive = true">
@@ -38,7 +40,7 @@
           <form  class="card" style="width:450px;">
       <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-10px" > 
         <br>
-        <p style="margin-right:250px"> อีเมล</p>
+        <p style="margin-right:250px">อีเมล</p>
       <b-field > 
               <b-input 
                 style="width:300px"
@@ -68,7 +70,6 @@
               password-reveal
               title="ใส่รหัสผ่าน"  >
             </b-input>
-            
             </b-field>
 
         <br>
@@ -77,8 +78,8 @@
               class="is-primary"
               @click="onSubmit"
               :loading="isLoading"
-              :can-cancel="true"
-              >Login
+              :can-cancel="true">
+              Login
     </b-button>
           </div>  
         </section>
@@ -119,8 +120,7 @@ export default {
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
-        .then(() => {
-          this.$router.replace({ name: 'home' });
+        .then((user) => {
           this.$buefy.toast.open({
                     message: 'เข้าสู่ระบบสำเร็จ',
                     type: 'is-success',

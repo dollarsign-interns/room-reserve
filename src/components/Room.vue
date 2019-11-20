@@ -59,7 +59,7 @@ export default {
       this.$buefy.dialog.confirm({
         title: `ข้อมูลผู้จอง  `,
         message: `ผู้จอง : ${this.room.owner}`,
-        confirmText: 'ต้องการลบหรือไม่ ?',
+        confirmText: 'ลบข้อมูล',
         cancelText: 'ปิด',
         type: 'is-danger',
         onConfirm: () => store.dispatch('removeRoom', {id:this.name}).then(()=>{
