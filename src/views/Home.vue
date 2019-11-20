@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <router-view />
+    <router-view /> 
      <b-navbar>
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
@@ -16,8 +16,14 @@
         </template>
         <template slot="end">
             <b-navbar-item tag="div">
-                <div class="buttons">
-                    <b-button type="is-danger"  outlined  @click="logout">ออกจากระบบ</b-button>
+                <div>
+                    <b-button 
+                      type="is-danger" 
+                      @click="logout"
+                      :loading="isLoading"
+                      :can-cancel="true">
+                      ออกจากระบบ
+                    </b-button>
                 </div>
             </b-navbar-item>
         </template>
@@ -51,12 +57,13 @@
 import store from '@/store/store';
 import firebase from 'firebase/app';
 import RoomGroup from '@/components/RoomGroup.vue';
+import VueLoadingButton from "vue-loading-button";
 
 export default {
-  isImageModalActive:false,
   name: 'Home',
   components: {
     RoomGroup,
+    VueLoadingButton,
   },
   data() {
     return {
@@ -64,14 +71,26 @@ export default {
       roomGroupListTwo: ['H', 'G', 'F', 'E'],
       roomGroupListThree: ['D', 'C', 'B', 'A'],
       roomGroupListFour: ['R', 'Q', 'P'],
-      roomGroupListFive: ['O', 'N', 'M']  
+      roomGroupListFive: ['O', 'N', 'M'],
+      isFullPage: true,
+      isLoading: false,
     };
   },
 
   methods: {
     logout() {
-      firebase.auth().signOut();
-      this.$router.push({name:'login'});
+      this.isLoading = true
+      setTimeout(() => {
+        this.isLoading = false
+      },10 * 1000);
+
+      firebase.auth().signOut().then(() => {
+        this.$router.replace('/');
+        this.$buefy.toast.open({
+          message: 'ออกจากระบบเรียบร้อย',
+          type: 'is-danger',
+        })
+      });
     },
   },
 };
@@ -86,7 +105,6 @@ div.relative {
 } 
 
 div.ex1 {
-
   width: 100%;
   height: calc(100vh - 190px);
   overflow: auto;

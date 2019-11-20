@@ -2,7 +2,7 @@
 <template>
     <div class="" >    
     <router-view />
-      <b-navbar class="">
+      <b-navbar class="is-dark">
         <template slot="brand">
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img
@@ -16,7 +16,7 @@
                     <a  @click="submit" class="button is-primary">
                         <strong>เช็คห้องว่าง</strong>
                     </a>
-                    <a class="button is-light" @click="isImageModalActive = true">
+                    <a class="button is-info" @click="isImageModalActive = true">
                         เช็คแผนผังห้อง
                     </a> 
                 </div>
@@ -28,7 +28,7 @@
                       <img src="../assets/mapping.png">
                       </p>
                     </b-modal>
-           <div   class="body">
+           <div class="body">
              <br>
              <br>
              <br>
@@ -38,27 +38,27 @@
           <form  class="card" style="width:450px;">
       <section   v-on:keyup.enter="onSubmit"   class="" style="width:330px;margin-left:-10px" > 
         <br>
-      <b-field 
-            style="margin-right:200px;"
-            label="Email">
+        <p style="margin-right:250px"> อีเมล</p>
+      <b-field > 
               <b-input 
-            style="margin-left:25px;width:290px"
-            oninvalid="this.setCustomValidity('อีเมลไม่ถูกต้อง')"
-            type="email"
-            placeholder="Email"
-            required
-            title="ใส่ Email"
-            autofocus
-            v-model="form.email"
+                style="width:300px"
+                oninvalid= "if (this.value == ''){this.setCustomValidity('โปรดใส่อีเมล')} if (this.value != ''){this.setCustomValidity('กรอกอีเมลไม่ถูกต้อง กรุณาใส่ @ เช่น abx@abx.xo')}" 
+                oninput="setCustomValidity('')"
+                type="email"  
+                placeholder="อีเมล"
+                required
+                title="ใส่ Email"
+                autofocus
+                v-model="form.email"
             >
             </b-input>
       </b-field>  
-
            <br>
-            <b-field style="margin-right:200px; "
-            label="รหัสผ่าน">
-                        <b-input 
-            style="margin-left:25px;width:290px"
+            <p style="margin-right:230px">รหัสผ่าน</p>
+            <b-field>
+            <b-input 
+              style="width:300px"
+            oninvalid="this.setCustomValidity('โปรดใส่รหัสผ่าน')"
             type="password"
              placeholder="รหัสผ่าน"
               id="password"
@@ -73,13 +73,13 @@
 
         <br>
         <div>
-    <b-button
-    style="width:290px;margin-left:10px; "
-      class="is-primary"
-      @click="onSubmit"
-      :loading="isLoading"
-    :can-cancel="true"
-    >Login</b-button>
+    <b-button style="width:300px;" 
+              class="is-primary"
+              @click="onSubmit"
+              :loading="isLoading"
+              :can-cancel="true"
+              >Login
+    </b-button>
           </div>  
         </section>
         <br>
@@ -95,7 +95,9 @@ import ui from '../store/firebase-ui';
 import store from '../store/store';
 import Room from '@/components/Room';
 import VueLoadingButton from "vue-loading-button";
+
 export default {
+  
   data(){
     return{ 
       isFullPage: true,
@@ -113,18 +115,16 @@ export default {
               this.isLoading = true
           setTimeout(() => {
                     this.isLoading = false
-                }, 3000)
+                }, 3000);
         firebase
         .auth()
         .signInWithEmailAndPassword(this.form.email, this.form.password)
- 
         .then(() => {
-          this.$router.replace({ name: 'Home' });
+          this.$router.replace({ name: 'home' });
           this.$buefy.toast.open({
-                    message: 'เข้าสู่ระบบเรียบร้อย',
+                    message: 'เข้าสู่ระบบสำเร็จ',
                     type: 'is-success',
                 })
-                
         })
         .catch((err) => {
           this.error = err.message;
@@ -158,7 +158,7 @@ export default {
     height: 500px;
     font-family: "Exo", sans-serif;
     color: #fff;
-    background: linear-gradient(-45deg, #000000, #e73c7e, #23a6d5, #000303);
+    background: linear-gradient(-45deg, #000000, #B22222, #191970, #000303);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }

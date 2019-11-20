@@ -11,13 +11,15 @@
                 class="sizebutton"
                 type="is-dark"  
                 outlined 
-                @click="selectRoom" >
+                @click="selectRoom">
                 <div style="height:100px;">{{name}}</div> 
       </b-button>
   </b-tooltip>  
 </template>
 <script>
+
 import store from '@/store/store';
+import { type } from 'os';
 
 export default {
   name: 'Room',
@@ -44,8 +46,14 @@ export default {
         cancelText: 'ยกเลิก',
         type:'is-dark',
         trapFocus: true,
-         onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }),
+         onConfirm: (value) => store.dispatch('updateRoom', { id: this.name, owner: value }).then(()=>{
+            this.$buefy.toast.open({
+              type:'is-success',
+              message:'เพิ่มข้อมูลสำเร็จ',
+            });
+         }),  
       });
+      
     },
     cancelRoom() {
       this.$buefy.dialog.confirm({
@@ -54,17 +62,23 @@ export default {
         confirmText: 'ต้องการลบหรือไม่ ?',
         cancelText: 'ปิด',
         type: 'is-danger',
-        onConfirm: () => store.dispatch('removeRoom', {id:this.name})
+        onConfirm: () => store.dispatch('removeRoom', {id:this.name}).then(()=>{
+            this.$buefy.toast.open({
+              type:'is-danger',
+              message:'ลบข้อมูลสำเร็จ',
+            });
+        })
       })
     },
   },
 };
 </script>
+
 <style  scoped>
 .sizebutton{
-width:40px;
-height:100px;
-margin-left: 3px;
+  width:40px;
+  height:100px;
+  margin-left: 3px;
 }
 
 </style>
