@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
     <div>    
     <router-view/>
       <b-navbar>
@@ -83,6 +84,35 @@
     </b-button>
           </div>  
         </section>
+=======
+  <div  class="section" >    
+    <center>
+      <form  style="width:330px">
+        <section @click="onSubmit" class="" > 
+          <b-field label="Email">
+            <b-input 
+              type="email" 
+              placeholder="Email"
+              required
+              autofocus
+              v-model="form.email">
+            </b-input>
+          </b-field>
+          
+          <b-field label="รหัสผ่าน">
+            <b-input 
+              type="password"
+              placeholder="รหัสผ่าน"
+              id="password"
+              name="password"
+              required
+              v-model="form.password"
+              password-reveal>
+            </b-input>
+          </b-field>
+        <b-button style="width:160px;height:45px;" class="is-success" type="onSumbit">Login</b-button>
+      </section>
+>>>>>>> master
         <br>
         </form>
         </div>
